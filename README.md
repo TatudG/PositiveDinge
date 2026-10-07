@@ -25,6 +25,42 @@ oder auf einen Webserver kopieren. Aktualisieren heißt: nochmal ausführen.
 
 Nur die Standardbibliothek, getestet mit Python 3.9. Kein `pip install`.
 
+## Stündlich automatisch
+
+Eine statische Seite kann sich nicht selbst aktualisieren — irgendetwas muss
+`build.py` ausführen, und zwar auch dann, wenn der Rechner aus ist. Das
+übernimmt `.github/workflows/stuendlich.yml`: GitHub baut die Seite jede
+Stunde neu, legt sie als Commit ab, und Pages stellt den Branch daraufhin von
+selbst neu bereit. Es ist nichts weiter zu tun.
+
+Drei Dinge sind dabei zu wissen:
+
+- **„Stündlich" ist eine Bitte, keine Zusage.** GitHub verteilt geplante Läufe
+  über alle Repositories. Unter Last kommen zehn bis dreißig Minuten
+  Verspätung zusammen. Der Lauf steht deshalb auf Minute 17 und nicht auf
+  Minute 0 — zur vollen Stunde stauen sich die Aufträge.
+- **Nach 60 Tagen ohne Aktivität schaltet GitHub geplante Workflows ab.** Hier
+  ist das unkritisch, weil der Workflow selbst Commits erzeugt und damit als
+  Aktivität zählt. Wer die Seite lange nicht anfasst und nichts mehr committet
+  wird: im Reiter *Actions* lässt sich der Lauf jederzeit von Hand starten
+  (*Run workflow*), danach läuft er wieder stündlich.
+- **Der Openverse-Zwischenspeicher liegt mit im Repository**
+  (`.cache/openverse/`). Ohne Schlüssel erlaubt Openverse nur 200 Anfragen am
+  Tag, und jeder Lauf startet in einem frischen Checkout. Ohne die
+  gespeicherten Antworten wären das rund 20 Suchen pro Stunde, also 480 am Tag
+  — das Limit wäre nach fünf Stunden erreicht und neue Artikel hätten kein
+  Bild mehr. Deshalb steht in `.gitignore` `.cache/*` statt `.cache/`.
+
+Der Workflow läuft mit `--nur-cc-bilder --aufraeumen`. Beides ist nötig:
+ohne den ersten Schalter stünden Pressefotos auf einer öffentlichen Seite, ohne
+den zweiten wüchse `img/cc/` mit jedem Lauf, weil neue Artikel neue Bilder
+bringen, ohne dass die alten verschwinden — und alle davon landen im Repository.
+
+Wer den Lauf lieber lokal haben möchte (und den Rechner dafür laufen lässt),
+kann `build.py` auch per `launchd` oder `cron` starten. Der Unterschied: die
+Seite im Netz aktualisiert sich dann erst, wenn zusätzlich ein `git push`
+erfolgt.
+
 ## Wie der Filter arbeitet
 
 Das ist der Teil, der die Seite ausmacht, und er ist bewusst anders gebaut, als

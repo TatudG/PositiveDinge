@@ -1111,7 +1111,7 @@ def verkleinere(pfad):
             # liest. Der Umweg liegt im Cache, nicht in img/ — sonst waere er
             # einen Wimpernschlag lang Teil der Veroeffentlichung.
             CACHE.mkdir(parents=True, exist_ok=True)
-            umweg = CACHE / ("umweg" + pfad.suffix)
+            umweg = CACHE / ("umweg-" + pfad.name)
             befehl = [programm, str(pfad)]
             if zu_breit:
                 # Das ">" heisst: nur verkleinern, nie vergroessern.
