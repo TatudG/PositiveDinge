@@ -1,0 +1,91 @@
+# Fehlschlag-Phrasen — geprueft VOR allen Positivsignalen.
+#
+# Das ist die Stufe, die den Filter nach oben abschliesst. Ohne sie gilt:
+# "Rettung gescheitert" enthaelt "rettung" (positiv) und "gescheitert"
+# (Kontext-Abzug) — netto koennte es durchrutschen. Hier fliegt es sofort raus.
+#
+# Positiv klingende Woerter in negativem Ausgang. Nackte Zeile = Stamm,
+# re: = regulaerer Ausdruck.
+
+# --- Deutsch ---
+rettung gescheitert
+rettung misslungen
+rettungsversuch gescheitert
+rettungsaktion gescheitert
+suche eingestellt
+suche erfolglos
+erfolglos
+erfolglosigkeit
+vergeblich
+ohne erfolg
+ohne aussicht
+chancenlos
+keine chance
+hoffnung schwindet
+hoffnung schwindet dahin
+hoffnung verloren
+keine hoffnung
+verzweifelt
+aussichtslos
+gescheitert
+ist gescheitert
+sind gescheitert
+hat gescheitert
+scheitert
+endet tödlich
+tödlich ausgegangen
+tödlich verletzt
+endet im chaos
+keine einigung
+einigung gescheitert
+verhandlungen gescheitert
+gespräche gescheitert
+keine besserung
+verschlechtert sich
+zustand kritisch
+kritischer zustand
+in kritischem zustand
+kämpft ums überleben
+schwebt in lebensgefahr
+hoffen weiterhin
+weiterhin vermisst
+weiterhin unklar
+immer noch keine
+noch immer keine
+trotz aller bemühungen
+vergeblich gesucht
+
+# --- English ---
+rescue failed
+failed rescue
+search called off
+search abandoned
+without success
+unsuccessful
+no hope
+hope fades
+hopes fade
+hopeless
+in vain
+gave up
+gave up hope
+no agreement
+talks collapse
+talks collapsed
+negotiations failed
+re:\bcollapse[ds]?\b
+ends in chaos
+escalat
+no improvement
+worsening
+condition critical
+critical condition
+fighting for life
+fighting for his life
+fighting for her life
+still missing
+still unclear
+despite efforts
+despite all efforts
+under threat
+threat of

@@ -1,0 +1,294 @@
+# Positive signals (English) — see positiv-de.txt for why this file carries the
+# real weight: for general news feeds a hit here is REQUIRED, not optional.
+#
+# Bare line = stem (substring, catches compounds). "re:" = regex for short or
+# ambiguous words. Matching is on casefolded text; a title hit counts double.
+
+# --- Rescue, help, care ---
+rescue
+rescued
+rescuers
+saves
+saved
+saving
+lifesaving
+liberated
+liberation
+helped
+helping
+aid
+aiding
+assisted
+support
+supports
+supported
+donat
+donation
+donations
+donor
+fundrais
+volunteer
+charit
+community effort
+solidarity
+sheltered
+rehomed
+fostered
+
+# --- Healing, health ---
+cure
+cured
+healing
+healed
+recovery
+recovers
+recovered
+survivor
+survived
+surviving
+remission
+treated successfully
+vaccine
+vaccination
+immunis
+early detection
+screening programme
+healthier
+
+# --- Success, progress, discovery ---
+breakthrough
+success
+successful
+succeeds
+succeeded
+milestone
+progress
+improvement
+improved
+improves
+advance
+advanced
+upgrade
+upgraded
+modernis
+innovative
+innovation
+discover
+discovered
+discovery
+researchers found
+scientists found
+invention
+invented
+patent
+pioneer
+landmark
+world first
+first ever
+for the first time
+# Deliberately no stems like "new" or "best": they appear in almost every
+# headline and would reduce the positive requirement to a formality.
+
+# --- Winning, records, awards ---
+re:\bwin(s|ning)?\b
+re:\bwon\b
+re:\bvictor
+victory
+champion
+championship
+record-breaking
+record
+personal best
+world record
+medal
+gold medal
+silver medal
+bronze medal
+podium
+qualified
+promoted
+award
+awarded
+prize
+prize-winning
+honored
+honoured
+recognised
+recognized
+laureate
+acclaimed
+celebrated
+most popular
+
+# --- Peace, agreement, cooperation ---
+peace
+peaceful
+peace deal
+ceasefire
+truce
+reconciliation
+reconciled
+agreement
+agreed
+compromise
+deal reached
+treaty
+partnership
+cooperation
+collaboration
+alliance
+together
+unity
+united
+dialogue
+understanding
+reunited
+reunion
+reunification
+
+# --- Hope, joy, contentment ---
+hope
+hopeful
+hopeful sign
+optimis
+encouraging
+encouraged
+uplifting
+heartwarming
+heart-warming
+joy
+joyful
+happy
+happiness
+delight
+delighted
+grateful
+gratitude
+thank
+wonderful
+amazing
+inspiring
+inspired
+cheer
+cheered
+celebrat
+re:\bproud\b
+smile
+laughter
+beloved
+popular
+
+# --- Nature, environment, climate (positive) ---
+conservation
+wildlife
+rewilding
+reforestation
+reforested
+replanted
+restoration
+restored
+reintroduced
+reintroduction
+recovery of
+population rebounds
+rebound
+recycling
+recycled
+reusable
+sustainable
+sustainability
+net zero
+carbon neutral
+carbon negative
+emissions-free
+renewable
+solar
+wind farm
+wind power
+photovoltaic
+geothermal
+marine reserve
+protected area
+sanctuary
+born
+birth
+newborn
+hatch
+hatched
+calf
+cub
+pup
+litter
+offspring
+flourishing
+thriving
+bloom
+
+# --- Economy and work (positive) ---
+hiring
+new jobs
+jobs created
+invest
+investment
+expansion
+expands
+growth
+grew
+profit
+surplus
+revenue up
+debt-free
+funding
+funded
+grant
+granted
+subsidy
+boost
+boosted
+repair
+repaired
+thrives
+
+# --- Opening, building, rebuilding ---
+opened
+opening
+inaugurated
+reopens
+reopened
+rebuild
+rebuilt
+rebuilding
+fresh start
+new start
+renovated
+refurbished
+restored to
+completed
+completion
+groundbreaking
+topped out
+new chapter
+
+# --- Justice and society (positive) ---
+acquitted
+acquittal
+exonerated
+cleared of
+rehabilitated
+innocent
+pardoned
+amnesty
+rights
+equality
+equal rights
+inclusion
+inclusive
+accessible
+accessibility
+opportunity
+scholarship
+graduat
+degree
+diploma
+passed the exam
+literacy

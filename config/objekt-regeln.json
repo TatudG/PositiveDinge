@@ -1,0 +1,104 @@
+{
+  "_hinweis": [
+    "Objekt-Regeln loesen die Doppeldeutigkeiten, an denen reine Wortlisten",
+    "zwangslaeufig scheitern. Das klassische Beispiel: 'tautet Viren' ist eine",
+    "gute Medizin-Nachricht, 'tautet Menschen' ist es nicht — beide enthalten",
+    "denselben Wortstamm. Erst das Objekt entscheidet.",
+    "",
+    "punkte <= -200 bedeutet: sofort verwerfen, ohne Diskussion.",
+    "Diese Regeln laufen VOR den Positiv- und Kontextsignalen.",
+    "Reihenfolge innerhalb der Liste: die erste passende Regel gewinnt."
+  ],
+  "regeln": [
+    {
+      "name": "toetet Krankheitserreger (Medizin-Erfolg)",
+      "muster": "töt\\w*\\s+(viren|bakterien|krebs|krebszellen|tumor|tumoren|zellen|keime|krankheitserreger|parasiten|pilze|mücken|zecken|insekten)",
+      "punkte": 3
+    },
+    {
+      "name": "toetet Krankheitserreger (englisch)",
+      "muster": "kill\\w*\\s+(viruses|bacteria|cancer|cancer cells|tumou?rs|cells|germs|pathogens|parasites|mosquito)",
+      "punkte": 3
+    },
+    {
+      "name": "toetet Menschen — hart raus",
+      "muster": "töt\\w*\\s+(menschen|kinder|personen|passanten|menschenmenge|frau|mann|polizisten|soldaten|zivilisten)",
+      "punkte": -200
+    },
+    {
+      "name": "kills people — hard discard",
+      "muster": "kill\\w*\\s+(people|person|man|woman|children|child|civilians|soldiers|dozens|hundreds)",
+      "punkte": -200
+    },
+    {
+      "name": "Boersenmeldung mit Kursgewinn — keine gute Nachricht",
+      "muster": "(kurs|vortages|boersen|börsen|dax|aktie|aktien|index|wall street|nasdaq|dow jones)\\w*.{0,30}(gewinn|plus|zulegen|steigt|erholt)",
+      "punkte": -3
+    },
+    {
+      "name": "Markt gibt nach",
+      "muster": "(dax|aktie|aktien|kurs|index|boerse|börse|markt|notierung)\\w*.{0,30}(gibt\\s+\\w*\\s*(ab|nach|auf)|rutscht|fällt|verliert|schliesst\\s+schwaecher)",
+      "punkte": -3
+    },
+    {
+      "name": "Rekord im negativen Kontext",
+      "muster": "rekord\\w*.{0,40}(infektion|arbeitslos|insolvenz|pleite|tote|toten|hitze|verluste|schulden|kriminalität|armut)",
+      "punkte": -4
+    },
+    {
+      "name": "Rekord im positiven Kontext",
+      "muster": "rekord\\w*.{0,40}(sieg|spende|spenden|besucher|umsatz|leistung|bestzeit|temperatur|fläche|art|tier|pflanze|wald|ertrag)",
+      "punkte": 3
+    },
+    {
+      "name": "Anstieg im negativen Kontext",
+      "muster": "anstieg\\w*.{0,40}(preis|preise|miete|mieten|arbeitslos|kriminalität|infektion|armut|schulden|gehalt|teuerung|inflation)",
+      "punkte": -3
+    },
+    {
+      "name": "Anstieg im positiven Kontext",
+      "muster": "anstieg\\w*.{0,40}(spende|spenden|hilfe|waldfläche|artenzahl|bestand|population|brutpaare|nachwuchs|zuwachs|ertrag)",
+      "punkte": 3
+    },
+    {
+      "name": "Erholung eines Bestands",
+      "muster": "(population|bestand|art|artigkeit|wolf|bär|luchs|adler|tiger|elefant|wal)\\w*.{0,40}(erholt|wächst|steigt|zugenommen|verdoppelt)",
+      "punkte": 3
+    },
+    {
+      "name": "Opferzahlen — hart raus",
+      "muster": "\\d+\\s*(menschen|personen|anhänger|häuser|fahrzeuge)?\\s*(sind\\s*)?(gestorben|getötet|ums leben gekommen|umgekommen)",
+      "punkte": -200
+    },
+    {
+      "name": "Ohne Opfer — ausdruecklich positiv",
+      "muster": "(ohne|keine|niemand|nichts)\\s+(verletzte|verletzten|opfer|tote|todesopfer|schaden)",
+      "punkte": 3
+    },
+    {
+      "name": "no casualties — explicitly positive",
+      "muster": "(no|without|zero)\\s+(casualties|injuries|victims|deaths|fatalities)",
+      "punkte": 3
+    },
+    {
+      "name": "Einigung nach Streit",
+      "muster": "(einigung|abkommen|kompromiss|vereinbarung).{0,40}(erzielt|erreicht|geschlossen|unterzeichnet|gelungen)",
+      "punkte": 3
+    },
+    {
+      "name": "Gefahr abgewendet",
+      "muster": "(katastrophe|unfall|zusammenstoß|absturz|kollision|brand|unglück).{0,40}(verhindert|abgewendet|vermeidet|ausgeblieben|blieb aus)",
+      "punkte": 4
+    },
+    {
+      "name": "Erfolg nach Rueckschlag",
+      "muster": "(nach|trotz).{0,30}(krise|rückschlag|unfall|krankheit|verletzung|niederlage).{0,40}(erfolg|sieg|zurück|erholt|genesen|aufgestiegen|gewonnen)",
+      "punkte": 3
+    },
+    {
+      "name": "Preise sinken — fuer Verbraucher gut",
+      "muster": "(preise|strompreise|energiepreise|mieten|ticketpreise|gebühren).{0,30}(sinken|sanken|gefallen|günstiger|billiger|reduziert|gesenkt)",
+      "punkte": 3
+    }
+  ]
+}

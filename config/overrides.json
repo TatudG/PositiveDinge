@@ -1,0 +1,19 @@
+{
+  "_hinweis": [
+    "Von Hand gepflegte Korrekturen. Jede Fehlentscheidung des Filters laesst",
+    "sich hier in Sekunden beheben, ohne Code oder Wortlisten anzufassen.",
+    "",
+    "force_drop: Artikel-URLs, die nie erscheinen sollen. Nimm hier auf, was",
+    "  durchgerutscht ist. Die URL steht im Audit-Log .cache/filter-report.json",
+    "  oder einfach in index.html hinter dem Titel.",
+    "force_keep: Artikel-URLs, die trotz zu niedrigem Score erscheinen sollen.",
+    "  Sinnvoll fuer Meldungen, die der Filter aus Unkenntnis verwirft.",
+    "",
+    "Praefix 'praefix:' matcht den Anfang einer URL — bequemer fuer ganze",
+    "Rubriken. Beispiel: 'praefix:https://www.spiegel.de/sport/'",
+    "",
+    "Nach jeder Aenderung: python3 build.py"
+  ],
+  "force_drop": [],
+  "force_keep": []
+}

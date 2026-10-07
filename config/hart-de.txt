@@ -1,0 +1,232 @@
+# Harte Sperre (Deutsch) — Treffer => Artikel wird verworfen.
+#
+# Regeln fuer diese Datei:
+#   * Eine Zeile ohne Praefix ist ein STAMM und wird als Teilzeichenkette gesucht.
+#     Das ist Absicht: nur so werden Komposita erfasst
+#     (Kriegsverbrechen, Flugzeugabsturz, Corona-Tote, Messerangriff).
+#     Deshalb duerfen hier nur Staemme stehen, die als Teilzeichenkette
+#     ungefaehrlich sind — kein "tod", weil das in "Todesmut" steckt.
+#   * Eine Zeile mit dem Praefix "re:" ist ein regulaerer Ausdruck. Den nimmt man
+#     fuer kurze Woerter, die als Teilzeichenkette zu viel treffen wuerden.
+#   * Verglichen wird auf kleingeschriebenem Text (casefold), d.h. "ß" wird zu "ss".
+#     Die Staemme hier trotzdem mit richtigem ß schreiben — das Skript faltet sie mit.
+#   * Zeilen mit # und Leerzeilen werden ignoriert.
+#
+# Der Negations-Waechter greift vor dieser Liste: steht im Fenster von 45 Zeichen
+# davor ein "ohne/kein/nicht/...", wird der Treffer ignoriert. "ohne Verletzte"
+# ist eben keine schlechte Nachricht.
+
+# --- Gewalt und Tod ---
+# Bewusst KEIN Stamm "töt": "tötet Viren/Bakterien/Krebszellen" ist eine gute
+# Medizin-Nachricht. Diese Unterscheidung treffen die Objekt-Regeln
+# (config/objekt-regeln.json), nicht diese Liste.
+töd
+starb
+gestorben
+todesopfer
+todesfall
+todesursache
+leiche
+mord
+ermordet
+amok
+massaker
+abgeschlachtet
+erschossen
+erschoss
+erstickt
+ertrunken
+vergewaltig
+verstümmelt
+missbrauch
+misshandelt
+menschenhandel
+verschleppt
+entführ
+geisel
+selbstmord
+suzid
+suizid
+flüchtlingsdrama
+
+# --- Krieg und Terror ---
+krieg
+kriegsverbrechen
+angriff
+angriffskrieg
+bombe
+bomben
+anschlag
+terror
+attentat
+rakete
+beschuss
+panzer
+frontlinie
+luftalarm
+mobilmachung
+putsch
+diktator
+
+# --- Messer und Schusswaffen ---
+re:\bmesser(angriff|attacke|attacken|stecherei|stecher)\b
+messerangriff
+messerattacke
+messerstecherei
+re:\bsch(uss|uesse|üssen)\b
+schusswaffe
+schusswaffen
+schützenpanzer
+# Bewusst KEIN Stamm "waffen": der steckt auch in "Waffenstillstand" und
+# "Waffenruhe" — beides gute Nachrichten. Deshalb nur die eindeutig
+# negativen Zusammensetzungen.
+waffengewalt
+waffenlieferung
+waffenexport
+
+# --- Katastrophen ---
+katastroph
+erdbeben
+überschwemm
+hochwasser
+sturzflut
+lawine
+vulkanausbruch
+tsunami
+großbrand
+waldbrand
+verwüstet
+zusammenbruch
+einsturz
+eingestürzt
+explosion
+explodiert
+vergiftet
+strahlenunfall
+
+# --- Unglueck und Unfall ---
+flugzeugabsturz
+abgestürzt
+zusammenstoß
+kollision
+entgleist
+gekentert
+gesunken
+schiffsunglück
+unglück
+verletzte
+verletzten
+schwerverletzt
+lebensgefahr
+obdachlos
+vermisst
+verschollen
+
+# --- Justiz, Kriminalitaet, Skandal ---
+haftstrafe
+gefängnis
+verurteilt
+angeklagt
+anklage
+prozess
+ermittlung
+ermittlungen
+durchsuchung
+durchsuchungen
+festnahme
+festgenommen
+verhaftet
+geständig
+skandal
+korruption
+bestechung
+betrug
+unterschlagung
+veruntreuung
+geldwäsche
+steuerhinterziehung
+insiderhandel
+re:\braub\b
+plünderung
+drogenhandel
+kriminell
+kriminalität
+rechtsextrem
+rechtsradikal
+neonazi
+antisemit
+rassistisch
+islamfeindlich
+
+# --- Wirtschaft und Arbeit ---
+insolvenz
+pleite
+zahlungsunfähig
+zwangsverwaltung
+entlassung
+entlassungen
+stellenabbau
+massenentlassung
+kündigungswelle
+kurzarbeit
+streik
+aussperrung
+rezession
+absturz
+börsencrash
+kurssturz
+wertverlust
+inflation
+teuerung
+preisexplosion
+energiekrise
+lieferengpass
+warenmangel
+rezessiv
+
+# --- Politik und Gesellschaft (Negativkontext) ---
+skandal
+affäre
+misstrauensvotum
+rücktritt
+amtsenthebung
+regierungskrise
+koalitionskrise
+vertrauensverlust
+wahlbetrug
+propaganda
+zensur
+verbotsverfahren
+abschiebung
+abschiebungen
+maulkorb
+staatsversagen
+
+# --- Krankheit und Seuche ---
+seuche
+pandemie
+epidemie
+virusvariant
+corona-tote
+coronatote
+infektionszahlen
+ansteckungszahlen
+krankheitswelle
+todesfälle
+sterberate
+übersterblichkeit
+hungersnot
+mangelernährung
+dürrekatastrophe
+
+# --- Klima- und Naturzerstoerung ---
+klimakatastrophe
+umweltkatastrophe
+ölkatastrophe
+waldsterben
+artensterben
+plastikmüll
+feinstaubalarm
+hitzewelle
+dürreperiode
+wassernot

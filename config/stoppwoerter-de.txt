@@ -1,0 +1,53 @@
+# Stoppwoerter (Deutsch) — fuer zwei Zwecke:
+#   1. Deduplizierung: Tragen nichts zur Unterscheidung zweier Titel bei.
+#   2. Openverse-Suche: Sind als Suchbegriff nutzlos.
+# Nackte Woerter, kleingeschrieben.
+
+der die das dem den des
+ein eine einen einem einer eines
+und oder aber doch auch
+ist sind war waren wird werden wurde wurden
+hat haben hatte hatten
+kann koennen können könnte konnten
+soll sollen sollte sollten
+muss müssen musste mussten
+mit ohne für von vom zum zur aus bei nach vor über unter gegen
+im in am an auf
+sich sich selbst
+er sie es ihr ihm ihn
+als wie wo was wer wann warum
+nicht kein keine keinen
+mehr sehr schon noch nur
+neue neuer neues neuen
+erste erster erstes ersten
+zwei drei vier fünf
+jahr jahre jahren
+zeit heute gestern morgen
+million millionen milliarde milliarden
+prozent
+sagt sagte sagen
+so damit dabei dazu daher
+wieder weiterhin bereits
+land leute menschen
+große großer großes großen
+kleine kleiner
+ganze ganzen
+jetzt hier dort
+diese dieser dieses diesen
+alle allen aller
+nach
+
+# Laender- und Ortsnamen sind fuer die Bildsuche unbrauchbar: "Polen" liefert
+# Landkarten statt Motiv. Sie bleiben aber im Text, nur die Bildsuche filtert sie.
+deutschland deutschlandweit deutsch
+oesterreich österreich schweiz schweizer
+polen polnisch frankreich französisch
+italien italienisch spanien spanisch
+england britannien britisch großbritannien
+usa amerika amerikanisch
+china chinesisch japan japanisch
+russland russisch ukraine ukrainisch
+israel palästina gaza
+europa europäisch
+berlin münchen hamburg köln stuttgart frankfurt
+wien zürich

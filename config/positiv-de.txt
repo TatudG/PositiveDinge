@@ -1,0 +1,343 @@
+# Positiv-Signale (Deutsch).
+#
+# ACHTUNG — das ist die wichtigste Datei des Projekts.
+# Eine allgemeine Nachrichtenquelle (ntv, Spiegel, Tagesschau, SWR, MDR) wird nur
+# aufgenommen, wenn hier mindestens ein Treffer steht. Der Grund steht in der
+# Planung: eine reine Sperrliste laesst 78-94 % aller Nachrichten durch, darunter
+# "Messerangriff an Schule". Positiv muss man sich verdienen, negativ nicht.
+#
+# Regeln wie bei hart-de.txt: nackte Zeile = Stamm (Teilzeichenkette, faengt
+# Komposita), "re:" = regulaerer Ausdruck fuer kurze, mehrdeutige Woerter.
+# Verglichen wird auf casefolded Text, ein Treffer im Titel zaehlt doppelt.
+
+# --- Rettung, Hilfe, Fuersorge ---
+rettung
+gerettet
+rettet
+rettete
+lebensrettend
+befreit
+befreiung
+hilfe
+hilft
+half
+geholfen
+behilflich
+unterstütz
+unterstützung
+spende
+spenden
+gespendet
+spender
+spendenaktion
+ehrenamt
+engagiert
+engagement
+freiwillig
+fürsorge
+obhut
+zuflucht
+aufgenommen
+aufnahme
+versorgt
+verpflegt
+geborgen
+gepflegt
+zuwendung
+zusammenhalten
+solidarität
+nachbarschaftshilfe
+
+# --- Heilung, Gesundheit ---
+heilung
+geheilt
+genesen
+genesung
+erholt
+erholung
+überlebt
+überlebende
+gerettete
+wiederhergestellt
+behandelt
+therapieerfolg
+geimpft
+impfstoff
+vorsorge
+früherkennung
+gesundet
+beschwerdefrei
+krebsfrei
+re:\bgeheilt\b
+
+# --- Erfolg, Fortschritt, Entdeckung ---
+erfolg
+erfolgreich
+erfolgreichste
+gelungen
+gelingt
+glückte
+durchbruch
+fortschritt
+verbesser
+verbessert
+optimiert
+modernisiert
+weiterentwickelt
+neuartig
+innovativ
+innovation
+entdeckt
+entdeckung
+erforscht
+forschungserfolg
+entwickelt
+erfunden
+erfindung
+patent
+pionier
+vorangebracht
+meilenstein
+wegweisend
+bahnbrechend
+weltneuheit
+erstmals
+verbesserung
+# Bewusst keine Stämme wie "neu" oder "beste": die stecken in fast jeder
+# Schlagzeile und würden die Positiv-Pflicht zu einer Formsache machen.
+
+# --- Gewinnen, Rekord, Auszeichnung ---
+re:\bsieg(e|t|en)?\b
+re:\bgewinnt\b
+re:\bgewann\b
+re:\bgewonnen\b
+re:\bsieger
+gewinn
+gewinner
+rekord
+rekordverdächtig
+bestleistung
+bestzeit
+weltbestzeit
+weltmeister
+europameister
+meister
+goldmedaille
+goldmedaillen
+silbermedaille
+bronzemedaille
+podium
+qualifiziert
+aufgestiegen
+auszeichnung
+ausgezeichnet
+geehrt
+ehrenpreis
+ehrenamtspreis
+gewürdigt
+preisträger
+nobelpreis
+friedensnobelpreis
+lob
+gelobt
+anerkennung
+vorbildlich
+vorbild
+beliebteste
+
+# --- Frieden, Einigung, Zusammenarbeit ---
+frieden
+friedlich
+friedensabkommen
+waffenstillstand
+waffenruhe
+versöhnung
+versöhnt
+einigung
+geeinigt
+kompromiss
+abkommen
+vereinbarung
+zusammenarbeit
+kooperation
+partnerschaft
+bündnis
+allianz
+gemeinsam
+gemeinschaft
+dialog
+verständigung
+annäherung
+wiedervereinigung
+zusammengeschlossen
+vereint
+
+# --- Hoffnung, Freude, Zufriedenheit ---
+hoffnung
+hoffnungsvoll
+hoffnungszeichen
+zuversicht
+optimistisch
+ermutigend
+ermutigt
+aufmutern
+freude
+freut
+freudig
+glücklich
+glück
+fröhlich
+zufrieden
+dankbar
+dank
+wunderbar
+großartig
+herzerwärmend
+berührend
+rührend
+bewegend
+schönste
+beste
+geliebt
+beliebt
+feiert
+gefeiert
+jubel
+jubelt
+begeistert
+begeisterung
+stolz
+gelungenes
+lachen
+lächeln
+
+# --- Natur, Umwelt, Klima (positiv) ---
+artenschutz
+naturschutz
+tierschutz
+umweltschutz
+klimaschutz
+renaturier
+renaturierung
+aufforstung
+aufgeforstet
+wiederaufgeforstet
+wiederansiedlung
+ausgewildert
+rückkehr
+zurückgekehrt
+erholt sich
+population erholt
+recycling
+wiederverwertet
+nachhaltig
+nachhaltigkeit
+klimaneutral
+emissionsfrei
+emissionsarm
+solar
+windkraft
+windrad
+photovoltaik
+erneuerbar
+ökolandbau
+bioanbau
+unversehrt
+gerettete tiere
+rettete
+freigelassen
+aus der not
+geboren
+geburt
+nachwuchs
+junge tiere
+geburten
+wachstum
+gedeiht
+blüht
+erblüht
+
+# --- Wirtschaft und Arbeit (positiv) ---
+einstellung
+stellt ein
+neue jobs
+arbeitsplätze geschaffen
+jobs geschaffen
+investition
+investiert
+investitionsprogramm
+expansion
+expandiert
+wächst
+wachstum
+zuwachs
+gewinn
+gewinnsteigerung
+umsatzplus
+umsatzrekord
+auftragsrekord
+erholt
+haushaltsüberschuss
+überschuss
+schuldenfrei
+entschuldet
+subvention bewilligt
+förderung
+gefördert
+finanziert
+zuwendung erhalten
+
+# --- Eröffnung, Bau, Wiederaufbau ---
+eröffnet
+eröffnung
+neueröffnung
+eingeweiht
+wiedereröffnet
+wiederaufbau
+wiederaufgebaut
+neuanfang
+neuaufbau
+saniert
+sanierung
+renoviert
+restauriert
+instandgesetzt
+ausgebaut
+erbaut
+fertiggestellt
+grundsteinlegung
+richtfest
+wiederherrichtung
+gelungenes projekt
+neustart
+startet neu
+
+# --- Recht und Gesellschaft (positiv) ---
+freigesprochen
+freispruch
+entlastet
+rehabilitiert
+unschuldig
+begnadigt
+amnestie
+rechte gestärkt
+gleichberechtigung
+gleichstellung
+inklusion
+barrierefrei
+barrierefreiheit
+teilhabe
+chancengleichheit
+bildungschance
+stipendium
+ausbildung
+abgeschlossen
+absolvent
+bestanden
+bestehensquote
+schulabschluss
+abitur
+diplom
+promotion
+habilitation
+lehre abgeschlossen

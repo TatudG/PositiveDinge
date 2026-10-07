@@ -1,0 +1,110 @@
+# Kontext-Signale (Deutsch) — Punktabzug, aber KEINE harte Sperre.
+#
+# Der Unterschied zu hart-de.txt ist der ganze Punkt dieser Datei:
+# "Unfall", "Brand", "Krise" koennen den Rahmen einer guten Nachricht bilden.
+# "Rettung nach Unfall", "Feuerwehr befreit Hund aus Brand", "Krise gemeistert" —
+# alles positive Meldungen, die an einem harten Block scheitern wuerden.
+# Sie kosten Punkte, der Netto-Score entscheidet.
+#
+# Regeln wie ueberall: nackte Zeile = Stamm, "re:" = regulaerer Ausdruck.
+
+unfall
+brand
+feuer
+krise
+knappheit
+engpass
+inflation
+arbeitslos
+entlassen
+kündigung
+klage
+verurteilt
+haft
+sanktion
+rücktritt
+rückruf
+warnung
+alarm
+vermisst
+verschwunden
+streik
+protest
+konflikt
+streit
+rückgang
+verlust
+defizit
+mangel
+sorge
+angst
+kritik
+ärger
+problem
+fehler
+gefahr
+risiko
+verboten
+strafe
+verdacht
+vorwurf
+abbau
+kürzung
+sparprogramm
+schulden
+defizitär
+haushaltsloch
+steuererhöhung
+gebührenerhöhung
+preisanstieg
+mietpreise
+re:\bteuer\b
+re:\bteurer\b
+verschlechtert
+verschlechterung
+rückläufig
+sinkt
+re:\bfällt\b
+rutscht
+schrumpft
+bricht ein
+einbruch
+zusammenbruch
+aufschub
+verschoben
+verzögert
+abgelehnt
+re:\bscheitert
+gescheitert
+abgebrochen
+ausgefallen
+storniert
+abgesagt
+abgerissen
+stillgelegt
+geschlossen
+schließung
+streitpunkt
+kontroverse
+empörung
+# Börsensprache: "Gewinn" steckt hier in einer Kursmeldung, nicht in einer
+# guten Nachricht. Ohne diese Eintraege kam "DAX gibt Vortagesgewinn ab"
+# allein wegen des Stamms "gewinn" durch den Filter.
+vortagesgewinn
+kursgewinn
+buchgewinn
+abgabedruck
+kursverlust
+gibt ab
+gibt nach
+gibt auf
+verliert an wert
+proteste
+demonstration
+blockade
+boykott
+boykottiert
+noch offen
+unklar
+fraglich
+zweifel

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<!-- GENERIERT von build.py — nicht von Hand editieren.
+     Aenderungen gehoeren in vorlage.html, css/style.css oder config/. -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PositiveDinge — nur gute Nachrichten</title>
+<meta name="description" content="Aktuelle Nachrichten, aber nur die guten. Gesammelt aus
+deutsch- und englischsprachigen Quellen, jede Meldung mit Bild und Quellenangabe.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<a class="sprungmarke" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopf">
+  <div class="huelle">
+    <p class="kopf__marke">PositiveDinge</p>
+    <h1 class="kopf__titel">Nachrichten, die man lesen <em>möchte</em>.</h1>
+    <p class="kopf__text">
+      Diese Seite sammelt aktuelle Meldungen aus deutschen und englischsprachigen
+      Quellen — und behält nur die guten. Jede Nachricht führt ihr Bild, ihre
+      Quelle und den Link zum Original mit.
+    </p>
+
+    <details class="methode">
+      <summary>Wie die Auswahl funktioniert</summary>
+      <div class="methode__text">
+        <p>
+          Ein Teil der Quellen berichtet ohnehin nur über gute Nachrichten. Bei
+          den allgemeinen Nachrichtenquellen entscheidet ein Filter, und zwar
+          bewusst <strong>umgekehrt</strong> als man zunächst denkt: Nicht das
+          Negative wird ausgesperrt, sondern das Positive muss nachgewiesen
+          werden. Eine reine Sperrliste ließe fast alles durch — die meisten
+          Meldungen sind nämlich neutral, nicht offensichtlich negativ.
+        </p>
+        <p>
+          In drei Stufen: Zuerst fliegen Formulierungen raus, die gut klingen,
+          aber einen Fehlschlag beschreiben („Rettung gescheitert"). Dann greift
+          eine Sperrliste gegen Gewalt, Unglück und Katastrophen — mit einer
+          Ausnahme für verneinte Formen, denn „ohne Verletzte" ist eine gute
+          Nachricht. Was übrig bleibt, muss Punkte sammeln: positive Wörter im
+          Titel zählen doppelt, negative ziehen ab.
+        </p>
+        <p class="methode__ehrlich">
+          <strong>Ehrlich gesagt:</strong> Wortlisten können nicht garantieren,
+          dass nie eine unpassende Meldung durchrutscht. Sie senken die
+          Trefferquote deutlich, mehr nicht. Deshalb protokolliert jeder Build
+          jede Entscheidung, und Fehlgriffe lassen sich in
+          <code>config/overrides.json</code> in Sekunden korrigieren.
+        </p>
+      </div>
+    </details>
+
+    <dl class="zahlen">
+      <div class="zahlen__paar">
+        <dt>Artikel</dt><dd>32</dd>
+      </div>
+      <div class="zahlen__paar">
+        <dt>Geprüft</dt><dd>325</dd>
+      </div>
+      <div class="zahlen__paar">
+        <dt>Ausgesiebt</dt><dd>260</dd>
+      </div>
+      <div class="zahlen__paar">
+        <dt>Quellen</dt><dd>10</dd>
+      </div>
+    </dl>
+
+    <p class="kopf__stand">
+      Zuletzt gebaut: <time>07.10.2026 um 13:44 Uhr</time>
+      · <span class="kopf__quellen">11 von 11
+      Quellen erreichbar</span>
+    </p>
+  </div>
+</header>
+
+<main id="inhalt">
+  <div class="huelle">
+
+    <nav class="filter" aria-label="Themen filtern">
+      <p class="filter__hinweis">Thema wählen</p>
+      <div class="filter__chips" id="chips">
+          <button class="chip is-aktiv" type="button" data-filter="alle" aria-pressed="true">Alle<span class="chip__zahl">32</span></button>
+          <button class="chip" type="button" data-filter="tiere-natur" aria-pressed="false">Tiere &amp; Natur<span class="chip__zahl">8</span></button>
+          <button class="chip" type="button" data-filter="gesundheit" aria-pressed="false">Gesundheit<span class="chip__zahl">2</span></button>
+          <button class="chip" type="button" data-filter="wissenschaft-technik" aria-pressed="false">Wissenschaft &amp; Technik<span class="chip__zahl">4</span></button>
+          <button class="chip" type="button" data-filter="umwelt-klima" aria-pressed="false">Umwelt &amp; Klima<span class="chip__zahl">2</span></button>
+          <button class="chip" type="button" data-filter="sport" aria-pressed="false">Sport<span class="chip__zahl">4</span></button>
+          <button class="chip" type="button" data-filter="kultur" aria-pressed="false">Kultur<span class="chip__zahl">1</span></button>
+          <button class="chip" type="button" data-filter="gesellschaft" aria-pressed="false">Gesellschaft<span class="chip__zahl">11</span></button>
+      </div>
+    </nav>
+
+    <p class="leer" id="leer" hidden>
+      Zu diesem Thema gibt es gerade nichts. <button type="button" class="leer__zurueck"
+      data-filter="alle">Alle Nachrichten zeigen</button>
+    </p>
+
+    <div id="strom">
+      <section class="gruppe" aria-labelledby="gruppe-heute">
+        <h2 class="gruppe__titel" id="gruppe-heute">Heute<span class="gruppe__zahl">5</span></h2>
+        <div class="raster">
+        <article class="karte" data-thema="gesundheit" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/016775526f4c483ec2bb.jpg" alt="Symbolbild zum Thema Gesundheit" width="600" height="450" loading="eager" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesundheit</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews.eu/eu-verschaerft-schutz-vor-krebserregenden-stoffen-am-arbeitsplatz-steuer-auf-plastikverpackungen-in-deutschland-geplant-putzen-gegen-rechts/" target="_blank" rel="noopener">EU verschärft Schutz vor krebserregenden Stoffen am Arbeitsplatz, Steuer auf Plastikverpackungen in Deutschland geplant, Putzen gegen Rechts</a>
+            </h3>
+            <p class="karte__teaser">Sechs gute Nachrichten, die deinen Tag besser machen.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>goodnews.eu</strong> · 7. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/9602574@N02" rel="noopener">TheNoxid</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="wissenschaft-technik" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/7b3d6652a9d4b44ba113.jpg" alt="Symbolbild zum Thema Wissenschaft &amp; Technik" width="600" height="406" loading="eager" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Wissenschaft &amp; Technik</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.tagesschau.de/wissen/forschung/chemie-nobelpreis-fuer-kagan-und-soai-100.html" target="_blank" rel="noopener">Chemie-Nobelpreis für Franzosen Kagan und Japaner Soai</a>
+            </h3>
+            <p class="karte__teaser">Der Nobelpreis für Chemie geht an den 1930 geborenen Franzosen Henri B. Kagan und den Japaner Kenso Soai. Sie werden für Entdeckungen ausgezeichnet, die etwa bei der Herstellung v…</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>SWR Aktuell</strong> · 7. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/26835854@N07" rel="noopener">umseas</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              <span class="karte__weitere">auch bei: Tagesschau</span>
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/0be42cb115fe10000764.jpg" alt="Symbolbild zum Thema Tiere &amp; Natur" width="600" height="443" loading="eager" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.n-tv.de/wissen/Chemie-Nobelpreis-geht-an-einen-Franzosen-und-einen-Japaner-id31391270.html" target="_blank" rel="noopener">Entdeckung nichtlinearer Effekte: Chemie-Nobelpreis geht an einen Franzosen und einen Japaner</a>
+            </h3>
+            <p class="karte__teaser">Der dritte Nobelpreis der Woche wird im Bereich Chemie vergeben. Die mit einer Million Euro dotierte Auszeichnung geht an Forscher aus Frankreich und Japan.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>ntv</strong> · 7. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/13521837@N00" rel="noopener">Floortje Walraven</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="wissenschaft-technik" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/10693811d851ea1558ce.jpg" alt="Symbolbild zum Thema Wissenschaft &amp; Technik" width="600" height="400" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Wissenschaft &amp; Technik</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.n-tv.de/wirtschaft/SpaceX-plant-wohl-massive-Investition-in-Nvidia-Chips-id31390576.html" target="_blank" rel="noopener">40-Milliarden-Mega-Deal: SpaceX plant wohl massive Investition in Nvidia-Chips</a>
+            </h3>
+            <p class="karte__teaser">Um seine KI-Pläne auszubauen, will SpaceX einem Medienbericht zufolge 40 Milliarden Dollar über Kredite und Anleihen aufnehmen. Der Deal sichert Nvidias Vormachtstellung und verdeutlicht den gigantischen …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>ntv</strong> · 7. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/95352257@N06" rel="noopener">UnitedSoybeanBoard</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/b69b3d7e5a9f90dedf90.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="397" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews-magazin.de/world-cleanup-day-mehr-als-650-000-menschen-sammeln-muell/" target="_blank" rel="noopener">World Cleanup Day: Mehr als 650.000 Menschen sammeln Müll</a>
+            </h3>
+            <p class="karte__teaser">Mehr als 654.000 Freiwillige haben sich 2026 allein in Deutschland am World Cleanup Day beteiligt. Nach vorläufigen Zahlen sammelten sie bundesweit rund 2.326 Tonnen Müll aus Parks, Straßen und Natur. beim …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Magazin</strong> · 7. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/12801018@N00" rel="noopener">KOMUnews</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        </div>
+      </section>
+      <section class="gruppe" aria-labelledby="gruppe-gestern">
+        <h2 class="gruppe__titel" id="gruppe-gestern">Gestern<span class="gruppe__zahl">9</span></h2>
+        <div class="raster">
+        <article class="karte" data-thema="sport" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/af6c0c3df01b85f03134.jpg" alt="Symbolbild zum Thema Sport" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Sport</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.n-tv.de/sport/Harry-Kane-trifft-doppelt-und-stellt-England-Rekord-ein-id31389329.html" target="_blank" rel="noopener">Spanien-Serie hält: Harry Kane trifft doppelt und stellt England-Rekord ein</a>
+            </h3>
+            <p class="karte__teaser">Die englische Fußball-Nationalmannschaft bleibt in der Nations League Weltmeister Spanien auf den Fersen. Während die Three Lions durch einen Doppelpack von Rekordmann Harry Kane gegen Tschechien gewinnen …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>ntv</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/62616836@N00" rel="noopener">Fuzzy Gerdes</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-gesellschaft.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.goodnewsnetwork.org/oldest-man-in-oregon-credits-clean-diet-and-good-mind-for-reaching-108-years-young/" target="_blank" rel="noopener">Oldest Man in Oregon Credits Clean Diet and “Good Mind” for Reaching 108-years Young</a>
+            </h3>
+            <p class="karte__teaser">A man who’s believed to be the oldest individual in the state of Oregon recently rung in 108-years-young with a cake and some words of wisdom. “You don’t know what it’s like to be 100-plus. I’ve found out and …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Network</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="sport" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/e516d9d643f4fc532525.jpg" alt="Symbolbild zum Thema Sport" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Sport</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.n-tv.de/sport/fussball/DFB-Junioren-loesen-souveraen-das-EM-Ticket-id31388990.html" target="_blank" rel="noopener">Vor Traum-Kulisse: DFB-Junioren lösen souverän das EM-Ticket</a>
+            </h3>
+            <p class="karte__teaser">Die EM-Teilnahme ist sicher: Die deutsche U21-Nationalmannschaft gewinnt ihr Qualifikations-Endspiel gegen Georgien und qualifiziert sich für die Fußball-Europameisterschaft im kommenden Sommer. Für …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>ntv</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/43521640@N00" rel="noopener">bossco</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="wissenschaft-technik" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/a5659236f24721caee22.jpg" alt="Symbolbild zum Thema Wissenschaft &amp; Technik" width="600" height="399" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Wissenschaft &amp; Technik</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.tagesschau.de/wissen/physiknobelpreis-francis-halzen-100.html" target="_blank" rel="noopener">Nobelpreis für Physik: Auszeichnung für Nachweis von &quot;Geistern aus dem All&quot;</a>
+            </h3>
+            <p class="karte__teaser">Ein riesiges Observatorium unter dem antarktischen Eis: Mit dieser verrückten Idee weist Francis Halzen Neutrinos nach - &quot;Geisterteilchen&quot; aus dem All. Dafür wird er mit dem Physik-Nobelpreis ausgezeichnet. …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Tagesschau</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/24662369@N07" rel="noopener">NASA Goddard Photo and Video</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesundheit" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/d820b0d5afddba888466.jpg" alt="Symbolbild zum Thema Gesundheit" width="600" height="450" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesundheit</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.mdr.de/wissen/medizin-gesundheit/antibakteriell-wundheilung-geschwuere-gewebe-chronisch,vanillin-medikamente-100.html" target="_blank" rel="noopener">Schmeckt gut und wirkt: Vanillin kann Wundheilung unterstützen</a>
+            </h3>
+            <p class="karte__teaser">Australische Forscher haben systematisch ausgewertet, welche medizinischen Potenziale im Vanillin stecken. Besonders bei der Heilung chronischer Wunden und der Hemmung von Entzündungen könnte Vanillin helfen.[ …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>MDR Aktuell</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/9602574@N02" rel="noopener">TheNoxid</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/01601b1c0ec05d61575b.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews.eu/koeln-benennt-strasse-mit-kolonialem-namen-um-unsichtbares-hoerimplantat-mehr-menschen-lernen-shk-berufe/" target="_blank" rel="noopener">Köln benennt Straße mit kolonialem Namen um, unsichtbares Hörimplantat, mehr Menschen lernen SHK-Berufe</a>
+            </h3>
+            <p class="karte__teaser">Gute Nachrichten für einen guten Tag.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>goodnews.eu</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/59639129@N08" rel="noopener">Carrotflower Productions International</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">BY-SA 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/a2839ddc02894c6829b6.jpg" alt="Symbolbild zum Thema Tiere &amp; Natur" width="600" height="404" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews-magazin.de/bedrohte-irawadi-delfine-rekord-nachwuchs-im-mekong/" target="_blank" rel="noopener">Bedrohte Irawadi-Delfine: Rekord-Nachwuchs im Mekong</a>
+            </h3>
+            <p class="karte__teaser">Die stark bedrohte Population der Irawadi-Delfine im kambodschanischen Mekong wächst wieder: Seit 2017 stieg sie von 89 auf 118 Tiere. 2026 wurden sechs Kälber geboren – so viele wie noch nie innerhalb eines …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Magazin</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/45040421@N06" rel="noopener">jlodder</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-gesellschaft.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.positive.news/environment/the-women-putting-community-at-the-heart-of-elephant-conservation/" target="_blank" rel="noopener">The women putting community at the heart of elephant conservation</a>
+            </h3>
+            <p class="karte__teaser">Across Africa, women are challenging old assumptions about who conservation is for – and who gets to lead it</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Positive News</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="sport" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/d0eddf1bb41d1b2f94fa.jpg" alt="Symbolbild zum Thema Sport" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Sport</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.swr.de/sport/mehr-sport/turnen-deutsches-team-wm-rotterdam-100.html" target="_blank" rel="noopener">WM-Premiere für Turn-Europameisterin Helen Kevric</a>
+            </h3>
+            <p class="karte__teaser">Stufenbarren-Europameisterin Helen Kevric (MTV Stuttgart) wird ebenso wie Madita Mayr, die am Kunst-Turn-Forum in Stuttgart trainiert, erstmals an einer Turn-WM teilnehmen.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>SWR Aktuell</strong> · 6. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/75683070@N00" rel="noopener">Ken Lund</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">BY-SA 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        </div>
+      </section>
+      <section class="gruppe" aria-labelledby="gruppe-diese-woche">
+        <h2 class="gruppe__titel" id="gruppe-diese-woche">Diese Woche<span class="gruppe__zahl">16</span></h2>
+        <div class="raster">
+        <article class="karte" data-thema="sport" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-sport.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Sport</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.goodnewsnetwork.org/star-quarterback-wants-to-help-gen-z-handle-money-with-new-video-series-finance-with-fernando/" target="_blank" rel="noopener">Star Quarterback Wants to Help Gen Z Handle Money with New Video Series ‘Finance with Fernando’</a>
+            </h3>
+            <p class="karte__teaser">As starting quarterback, Heisman Trophy winner, #1 NFL Draft pick, and aspiring philanthropist, Fernando Mendoza seems all lined up for a dynamite career in football. Yet as the holder of an MBA in Business …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Network</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="kultur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-kultur.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Kultur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.goodnewsnetwork.org/nonprofit-brings-free-music-education-to-more-than-20000-miami-students-in-131-schools/" target="_blank" rel="noopener">Nonprofit Brings Free Music Education to More Than 20,000 Miami Students in 131 Schools</a>
+            </h3>
+            <p class="karte__teaser">Down in Miami-Dade County, educators are seeing how school doesn’t mean a thing if it ain’t got that swing. Showing up, taking an interest in school and the community therein, comes that much easier for the …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Network</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/b4302f45eaf55a003409.jpg" alt="Symbolbild zum Thema Tiere &amp; Natur" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.goodnewsnetwork.org/orphaned-rescued-and-rewilded-female-gorilla-becomes-a-mother-in-historic-conservation-success/" target="_blank" rel="noopener">Orphaned, Rescued, and Rewilded, Female Gorilla Becomes a Mother in Historic Conservation Success</a>
+            </h3>
+            <p class="karte__teaser">One of the first-ever eastern lowland gorillas to be successfully returned to the wild gave birth on May 21st in her new/old home of Virunga National Park in the Democratic Republic of the Congo (DRC). Every …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Network</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/7927684@N03" rel="noopener">jeffreyw</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/950d9db779d484ba299e.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews.eu/bahn-macht-familienticket-zum-dauerangebot-in-berlin-oeffnet-ein-haus-fuer-junge-menschen-ohne-zuhause-neues-pflaster-fuer-chronische-wunden/" target="_blank" rel="noopener">Bahn macht Familienticket zum Dauerangebot, in Berlin öffnet ein Haus für junge Menschen ohne Zuhause, neues Pflaster für chronische Wunden</a>
+            </h3>
+            <p class="karte__teaser">Sechs gute Nachrichten für einen guten Start in die Woche.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>goodnews.eu</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/47264866@N00" rel="noopener">OakleyOriginals</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/39d9342eb17b0d6ee9ec.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.positive.news/environment/meet-the-14-year-old-uncovering-londons-lost-history/" target="_blank" rel="noopener">Meet the 14-year-old uncovering London’s lost history</a>
+            </h3>
+            <p class="karte__teaser">Seasoned mudlark Emmylou Vaxby has spent nearly a decade searching the Thames foreshore for fragments of the city’s past</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Positive News</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/9952716@N05" rel="noopener">kl.fitness</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-tiere-natur.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.optimistdaily.com/2026/10/wisconsins-first-certified-shinrin-yoku-trail-is-open-to-everyone/" target="_blank" rel="noopener">Wisconsin’s first certified Shinrin-yoku trail is open to everyone</a>
+            </h3>
+            <p class="karte__teaser">Think about the last time you went for a walk in the woods. Were you listening to a podcast? Checking your step count? Moving fast enough to feel productive, already running through everything you needed to do …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Optimist Daily</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/3cf3035c552bdfe87b9e.jpg" alt="Symbolbild zum Thema Tiere &amp; Natur" width="600" height="400" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.goodnewsnetwork.org/pomegranates-walnuts-and-berries-could-unlock-heart-failure-treatment-with-urolithin-a/" target="_blank" rel="noopener">Pomegranates, Walnuts and Berries Could Unlock Heart Failure Treatment By Producing Urolithin A</a>
+            </h3>
+            <p class="karte__teaser">A compound produced in the body after eating pomegranates improves heart function by up to 80%, particularly for a type of heart failure with limited treatment options. Scientists at King’s College London have …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Network</strong> · 5. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/24742305@N00" rel="noopener">John-Morgan</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-tiere-natur.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.goodnewsnetwork.org/finalists-win-big-laughs-in-the-comedy-wildlife-photography-awards-look/" target="_blank" rel="noopener">Finalists Win Big Laughs in The Comedy Wildlife Photography Awards – LOOK</a>
+            </h3>
+            <p class="karte__teaser">It’s that time of the year again, when the cutest, most spontaneous snapshots that capture the amusing side of nature, compete in a bid to win the Comedy Wildlife Photography Awards. The Nikon sponsored awards …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Good News Network</strong> · 4. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="umwelt-klima" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/c8fe1a2a46ce59b668fc.jpg" alt="Symbolbild zum Thema Umwelt &amp; Klima" width="600" height="418" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Umwelt &amp; Klima</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews.eu/best-of-september-9-gute-nachrichten-des-monats/" target="_blank" rel="noopener">Best-of September: 9 gute Nachrichten des Monats</a>
+            </h3>
+            <p class="karte__teaser">Von China, wo Solar die Kohle überholt, bis zum neuen Hochseeschutzabkommen – unser September-Rückblick steckt voller Lichtblicke.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>goodnews.eu</strong> · 2. Oktober 2026</span>
+              
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-gesellschaft.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.positive.news/society/democracy/good-news-stories-from-week-40-of-2026/" target="_blank" rel="noopener">What went right this week: the good news that matters</a>
+            </h3>
+            <p class="karte__teaser">The ‘alternative Nobel prize’, global progress on ageism, and a boost for gorillas, plus more</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Positive News</strong> · 2. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/25d8d9c1c2d71e70baf8.jpg" alt="Symbolbild zum Thema Tiere &amp; Natur" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.optimistdaily.com/2026/10/fighting-dengue-with-sterile-insects-lisbons-experimental-approach/" target="_blank" rel="noopener">Fighting dengue with sterile insects: Lisbon’s experimental approach</a>
+            </h3>
+            <p class="karte__teaser">Portugal has released 30,000 sterile male mosquitoes in Lisbon as part of a push to bring down populations of the Asian tiger mosquito ( Aedes albopictus ), a species that can carry dengue , Zika, and yellow …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Optimist Daily</strong> · 2. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/10899234@N00" rel="noopener">ainudil</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">BY-SA 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/5b46c82bcc9c6647c3d9.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="399" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews.eu/exoskelett-in-den-usa-zugelassen-mittelalterliche-rezeptur-hilft-gegen-superkeime-erste-moorraupe-in-deutschland-im-einsatz/" target="_blank" rel="noopener">Exoskelett in den USA zugelassen, mittelalterliche Rezeptur hilft gegen Superkeime, erste Moorraupe in Deutschland im Einsatz</a>
+            </h3>
+            <p class="karte__teaser">Mit guten Nachrichten die Welt positiver sehen.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>goodnews.eu</strong> · 1. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/28591409@N06" rel="noopener">Bruno_Caimi</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/a9c36fa38947775c5992.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="337" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.positive.news/lifestyle/why-good-leaders-listen/" target="_blank" rel="noopener">Why good leaders listen</a>
+            </h3>
+            <p class="karte__teaser">Listening is often overlooked as a leadership skill, but it can challenge assumptions and lead to better decisions</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Positive News</strong> · 1. Oktober 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/196226696@N04" rel="noopener">Governor Glenn Youngkin</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="tiere-natur" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-tiere-natur.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Tiere &amp; Natur</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.optimistdaily.com/2026/10/the-herbs-and-spices-dietitians-say-support-immune-function/" target="_blank" rel="noopener">The herbs and spices dietitians say support immune function</a>
+            </h3>
+            <p class="karte__teaser">Every fall, the same conversation starts about how to stay well through cold and flu season. Most of the advice points to supplements: vitamin C, zinc, elderberry. Useful, but not the whole picture. The spice …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Optimist Daily</strong> · 1. Oktober 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="wissenschaft-technik" data-sprache="de">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/95481f434d73b1b09a86.jpg" alt="Symbolbild zum Thema Wissenschaft &amp; Technik" width="600" height="399" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Wissenschaft &amp; Technik</span>
+              <span class="karte__sprache" title="Sprache des Originals">DE</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://goodnews.eu/oesterreich-verzeichnet-weniger-schwere-rsv-faelle-bei-babys-die-preistraegerinnen-des-alternativen-nobelpreis-mehr-menschen-in-europa-machen-sport/" target="_blank" rel="noopener">Österreich verzeichnet weniger schwere RSV-Fälle bei Babys, die Preisträgerinnen des Alternativen Nobelpreis, mehr Menschen in Europa machen Sport</a>
+            </h3>
+            <p class="karte__teaser">Sechs gute Nachrichten, die zeigen, dass auf der Welt jede Menge Gutes passiert.</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>goodnews.eu</strong> · 30. September 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/34402227@N03" rel="noopener">U.S. Army Combat Capabilities Development Command</a> · <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">BY-SA 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/kachel-gesellschaft.svg" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.positive.news/lifestyle/i-stopped-reading-bad-news-for-48-hours-heres-what-happened/" target="_blank" rel="noopener">I stopped reading bad news for 48 hours. Here’s what happened</a>
+            </h3>
+            <p class="karte__teaser">What changes when you swap the daily doomscroll for journalism that asks not just what’s wrong, but what’s working? Oliver Balch finds out</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Positive News</strong> · 30. September 2026</span>
+              <span class="karte__nachweis">Illustration</span>
+              
+            </p>
+          </div>
+        </article>
+        </div>
+      </section>
+      <section class="gruppe" aria-labelledby="gruppe-aelter">
+        <h2 class="gruppe__titel" id="gruppe-aelter">Älter<span class="gruppe__zahl">2</span></h2>
+        <div class="raster">
+        <article class="karte" data-thema="gesellschaft" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/58049cdd0e2f1c063df5.jpg" alt="Symbolbild zum Thema Gesellschaft" width="600" height="399" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Gesellschaft</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://reasonstobecheerful.world/home-for-denver-homeless-college-students/" target="_blank" rel="noopener">A Place to Sleep for Denver’s Homeless College Students</a>
+            </h3>
+            <p class="karte__teaser">This story was originally published by Chalkbeat. Sign up for their newsletters at ckbe.at/newsletters. During her first semester at Chicago’s Malcolm X College, Nikya Harrell had had enough. It was winter …</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Reasons to be Cheerful</strong> · 29. September 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/131057828@N07" rel="noopener">NICHD NIH</a> · <a href="https://creativecommons.org/publicdomain/mark/1.0/" rel="noopener">PDM 1.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        <article class="karte" data-thema="umwelt-klima" data-sprache="en">
+          <div class="karte__bildrahmen"><img class="karte__bild" src="img/cc/fbc95f736d725f3706b2.jpg" alt="Symbolbild zum Thema Umwelt &amp; Klima" width="600" height="449" loading="lazy" decoding="async"></div>
+          <div class="karte__inhalt">
+            <p class="karte__kopf">
+              <span class="karte__thema">Umwelt &amp; Klima</span>
+              <span class="karte__sprache" title="Sprache des Originals">EN</span>
+            </p>
+            <h3 class="karte__titel">
+              <a href="https://www.positive.news/economics/the-ethical-fashion-brand-championing-change-across-the-industry/" target="_blank" rel="noopener">Can affordable ethical fashion scale up?</a>
+            </h3>
+            <p class="karte__teaser">With a focus on living wages, better fabrics and sustainability, one clothing brand is pushing to transform the fashion industry</p>
+            <p class="karte__fuss">
+              <span class="karte__quelle">Quelle: <strong>Positive News</strong> · 28. September 2026</span>
+              <span class="karte__nachweis">Bild: <a href="https://www.flickr.com/photos/42839495@N07" rel="noopener">craftivist collective</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">BY 2.0</a></span>
+              
+            </p>
+          </div>
+        </article>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <h2 class="fuss__titel">Über diese Seite</h2>
+    <p>
+      PositiveDinge ist eine statische Seite: eine einzelne HTML-Datei, kein
+      Server, kein Tracking, keine externen Schriften. Aktualisiert wird sie,
+      indem <code>build.py</code> erneut läuft.
+    </p>
+    <p>
+      <strong>Quellen dieser Ausgabe:</strong> <span class="fuss__quellen">Good News Magazin, Good News Network, MDR Aktuell, Optimist Daily, Positive News, Reasons to be Cheerful, SWR Aktuell, Tagesschau, goodnews.eu, ntv</span>.
+      Überschriften und Anrisstexte gehören den jeweiligen Rechteinhabern; die
+      Links führen zum Original. Frei lizenzierte Bilder sind unter dem Bild mit
+      Urheber und Lizenz benannt, wie es die Lizenz verlangt. Diese Ausgabe nutzt ausschließlich frei lizenzierte Bilder und eigene Illustrationen — keine Pressefotos.
+    </p>
+    <p class="fuss__klein">
+      Die Auswahl ist automatisch und kann danebenliegen. Wenn dir etwas
+      durchgerutscht ist, das hier nicht hingehört, ist das ein Fehler in den
+      Wortlisten — und in <code>config/overrides.json</code> schnell behoben.
+    </p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

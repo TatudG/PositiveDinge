@@ -1,0 +1,198 @@
+# Hard block (English) — a hit means the article is discarded.
+#
+# Same rules as hart-de.txt:
+#   * A bare line is a STEM, matched as a substring (needed for compounds).
+#   * "re:" prefix means a regular expression — for short words that would
+#     match too much as a substring (war/warning, win/window, stab/stable).
+#   * Matching happens on casefolded text.
+#
+# The negation guard runs first: "without injuries", "no casualties",
+# "zero deaths" do NOT trigger the block.
+
+# --- Violence and death ---
+killed
+killing
+murdered
+murder
+assassinated
+massacre
+rampage
+shooting
+gunman
+stabbed
+stabbing
+beheaded
+executed
+lynch
+rape
+raped
+abuse
+abused
+torture
+kidnapp
+hostage
+suicide
+fatalities
+fatal
+deadly
+re:\bdead\b
+re:\bdeath(s)?\b
+re:\bdied\b
+re:\bdies\b
+corpse
+casualt
+body found
+
+# --- War and terror ---
+re:\bwar\b
+re:\bwars\b
+warfare
+warzone
+airstrike
+air strike
+missile
+bombing
+bombed
+shelling
+grenade
+terroris
+insurgen
+militant
+militia
+troops killed
+ceasefire violated
+
+# --- Weapons ---
+re:\bgun(s)?\b
+re:\bweapon(s)?\b
+rifle
+ammunition
+
+# --- Disaster ---
+disaster
+catastroph
+earthquake
+flood
+flooding
+tsunami
+hurricane
+typhoon
+cyclone
+tornado
+wildfire
+volcanic
+landslide
+avalanche
+collapse
+collapsed
+derailed
+capsized
+shipwreck
+crash
+crushed
+explosion
+exploded
+toxic leak
+radiation leak
+
+# --- Accident and injury ---
+re:\binjur
+wounded
+re:\bvictim
+perished
+stranded
+missing person
+life-threatening
+re:\baccident
+emergency landing
+
+# --- Justice, crime, scandal ---
+convicted
+sentenced
+imprison
+jailed
+indicted
+indictment
+charged with
+prosecut
+investigat
+raid
+arrest
+confiscat
+fraud
+embezzl
+bribery
+corrupt
+money laundering
+tax evasion
+smuggl
+trafficking
+scandal
+cover-up
+whistleblower
+
+# --- Economy and labour ---
+bankrupt
+insolven
+layoff
+laid off
+job cuts
+redundanc
+downsizing
+strike action
+recession
+market crash
+stock crash
+plunge
+inflation
+cost-of-living
+supply shortage
+energy crisis
+foreclosure
+repossess
+
+# --- Politics and society ---
+resignation
+resigned
+impeach
+no-confidence
+coalition crisis
+vote rigging
+election fraud
+propaganda
+censorship
+deportation
+deport
+ban on
+extremis
+neo-nazi
+antisemit
+racist
+xenophob
+discriminat
+
+# --- Disease ---
+pandemic
+epidemic
+outbreak
+infection rate
+death toll
+mortality
+famine
+starvation
+malnutrition
+measles
+cholera
+ebola
+
+# --- Environmental destruction ---
+climate catastrophe
+oil spill
+deforestation
+species extinction
+extinction
+air pollution alert
+heatwave
+heat wave
+drought
+water shortage

@@ -1,0 +1,29 @@
+# Stop words (English) — for deduplication and the Openverse query.
+# Bare lowercase words.
+
+the a an
+and or but also
+is are was were be been being
+has have had
+can could may might must shall should will would
+of to for with without from into onto about over under against
+in on at by after before
+it its this that these those
+he she they them their his her
+as like when where what who why how
+not no none
+more most very just only still already yet
+new newer newest
+first second third
+one two three four five
+year years month months day days
+today yesterday tomorrow
+million millions billion billions
+percent
+said says say
+again further
+country people
+big large great small
+whole entire
+now here there
+all every each

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Gesundheit">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8431a"/>
+      <stop offset="1" stop-color="#ffb992"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <g opacity=".13" fill="#fff">
+    <circle cx="118" cy="92" r="108"/>
+    <circle cx="712" cy="424" r="140"/>
+    <circle cx="648" cy="86" r="52"/>
+  </g>
+  <g opacity=".95"><path d="M400 356 C286 280 286 186 348 176 C378 171 396 192 400 206 C404 192 422 171 452 176 C514 186 514 280 400 356 Z" fill="none" stroke="#fff" stroke-width="13" stroke-linejoin="round"/></g>
+</svg>

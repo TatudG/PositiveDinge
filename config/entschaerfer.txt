@@ -1,0 +1,83 @@
+# Entschaerfer — heben einen Treffer der harten Sperre auf.
+#
+# Warum es diese Datei gibt: "krieg" steht in hart-de.txt und faengt damit
+# "Kriegsverbrechen" und "Kriegsende" gleichermassen. Das ist gewollt
+# konservativ, kostet aber echte gute Nachrichten. Steht im Text ein
+# Entschaerfer, wird ein harter Treffer ignoriert — der Artikel muss sich dann
+# trotzdem ueber die normalen Positivsignale qualifizieren.
+#
+# Bewusst NICHT enthalten: "gerettet", "rescued". Die stehen in Meldungen wie
+# "drei Menschen gerettet, fuenf tot" — dort ist das Entschaerfern falsch.
+# Aufgenommen wird nur, was den Schaden selbst ausdruecklich aufhebt.
+
+# --- Deutsch ---
+waffenstillstand
+waffenruhe
+feuerpause
+friedensabkommen
+friedensvertrag
+friedensplan
+friedensgespräche
+friedensprozess
+krieg beendet
+kriegsende
+beendet den krieg
+frieden geschlossen
+frieden vereinbart
+versöhnung
+versöhnt
+gefangenenaustausch
+gefangene freigelassen
+freilassung
+freigelassen
+freigekommen
+ohne verletzte
+ohne opfer
+unversehrt
+keine toten
+keine opfer
+niemand verletzt
+niemand getötet
+entwarnt
+entschärft
+entschärfung
+begnadigt
+amnestie
+außer lebensgefahr
+nicht mehr in lebensgefahr
+über den berg
+erholt sich
+wieder aufgebaut
+wiederaufbau
+
+# --- English ---
+ceasefire
+cease-fire
+truce
+peace deal
+peace agreement
+peace talks
+peace plan
+peace process
+war is over
+war ended
+ends the war
+reconciliation
+reconciled
+prisoner exchange
+prisoners released
+prisoner swap
+released
+freed
+no casualties
+no injuries
+no one injured
+no one killed
+without injuries
+unharmed
+unscathed
+out of danger
+no longer in danger
+turned the corner
+recovering
+rebuilt

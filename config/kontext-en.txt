@@ -1,0 +1,88 @@
+# Context signals (English) — point deduction, NOT a hard block.
+#
+# Same reasoning as kontext-de.txt: "accident", "fire", "crisis" can be the
+# setting of good news ("rescue after accident", "firefighters free dog from
+# burning house"). They cost points; the net score decides.
+
+accident
+fire
+crisis
+shortage
+shortfall
+inflation
+unemployment
+unemployed
+redundancy
+lawsuit
+sue
+sanctions
+resigned
+resignation
+recall
+warning
+alert
+missing
+disappeared
+strike
+protest
+conflict
+dispute
+decline
+declining
+loss
+losses
+deficit
+lack
+worry
+worries
+fear
+fears
+criticism
+criticised
+criticized
+problem
+error
+danger
+risk
+banned
+fine
+suspicion
+accusation
+allegation
+cuts
+spending cuts
+austerity
+debt
+deficit spending
+tax rise
+fee increase
+price rise
+rent
+re:\bexpensive
+deteriorat
+downturn
+re:\bfalls\b
+re:\bfalling\b
+slides
+shrinks
+slump
+delay
+delayed
+postponed
+rejected
+re:\bfail(s|ed|ing)?\b
+cancelled
+canceled
+abandoned
+closed
+closure
+shutdown
+controversy
+outrage
+demonstration
+blockade
+boycott
+uncertain
+unclear
+doubt
+concerns

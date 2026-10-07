@@ -1,0 +1,23 @@
+# Zwischenstand: gecachte Feeds, Openverse-Antworten, Audit-Log.
+# Nicht versionieren — reine Beschleunigung und Diagnose.
+.cache/
+
+# Halbfertige Schreibvorgaenge (tauchen nur auf, wenn ein Build abstuerzt)
+*.tmp
+
+# macOS
+.DS_Store
+._*
+
+# Die heruntergeladenen Bilder in img/cc/ sind ABSICHTLICH nicht ignoriert.
+# Ohne sie funktioniert die Seite offline nicht. Bei sehr vielen Artikeln
+# waechst das Verzeichnis — dann hier einkommentieren und die Seite nur
+# online nutzen:
+# img/cc/
+
+# Pressefotos dagegen NIE versionieren. Sie stehen unter Urheberrecht, und was
+# im Branch liegt, ist auf GitHub Pages abrufbar — auch die Dateien, die keine
+# Karte einbindet. Ein Verzeichnis auf einem Webserver ist lesbar, nicht nur
+# die verlinkten Eintraege. Lokal entstehen sie bei einem Build ohne
+# --nur-cc-bilder und sind jederzeit neu ladbar.
+img/presse/

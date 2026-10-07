@@ -1,0 +1,116 @@
+{
+  "_hinweis": [
+    "trust = 'kuratiert': die Quelle berichtet ohnehin nur Gutes. Sie braucht nur",
+    "  das Sicherheitsnetz (harte Sperre) und die Schwelle Score >= 0.",
+    "trust = 'allgemein': normale Nachrichtenquelle. Hier ist ein Positivsignal",
+    "  PFLICHT und die Schwelle liegt bei Score >= 4. Ohne diese Trennung waere",
+    "  die Seite voller neutraler Politikmeldungen.",
+    "",
+    "max_pro_quelle begrenzt, wie viele Artikel eine Quelle beisteuern darf.",
+    "Ohne das fluten ntv und Spiegel die ganze Seite.",
+    "",
+    "ZDF ist absichtlich auf aktiv=false: der Feed mischt TV-Programmhinweise",
+    "(Kategorien wie 'UEFA Nations League', 'phoenix vor ort') unter die",
+    "Nachrichten. Auf true setzen, wenn das nicht stoert."
+  ],
+  "max_pro_quelle": 6,
+
+  "_schwellen": [
+    "Score, den ein Artikel erreichen muss. Positivsignal im Titel zaehlt +2,",
+    "im Text +1, Themen-Bonus +1, Kontextsignal -2 bzw. -1.",
+    "kuratiert 0: die Quelle berichtet ohnehin nur Gutes, das Sicherheitsnetz",
+    "  (harte Sperre) hat schon gegriffen.",
+    "allgemein 4: verlangt mindestens zwei Titel-Positivsignale oder ein",
+    "  Titel-Signal plus Themen-Bonus. Das ist der eigentliche Filter.",
+    "Zum Lockern auf 3 setzen, zum Verschaerfen auf 5."
+  ],
+  "schwelle_kuratiert": 0,
+  "schwelle_allgemein": 4,
+
+  "quellen": [
+    {
+      "name": "Good News Network",
+      "url": "https://www.goodnewsnetwork.org/feed/",
+      "trust": "kuratiert",
+      "sprache": "en",
+      "aktiv": true
+    },
+    {
+      "name": "Positive News",
+      "url": "https://www.positive.news/feed/",
+      "trust": "kuratiert",
+      "sprache": "en",
+      "aktiv": true
+    },
+    {
+      "name": "Optimist Daily",
+      "url": "https://www.optimistdaily.com/feed/",
+      "trust": "kuratiert",
+      "sprache": "en",
+      "aktiv": true
+    },
+    {
+      "name": "Reasons to be Cheerful",
+      "url": "https://reasonstobecheerful.world/feed/",
+      "trust": "kuratiert",
+      "sprache": "en",
+      "aktiv": true
+    },
+    {
+      "name": "Good News Magazin",
+      "url": "https://goodnews-magazin.de/feed/",
+      "trust": "kuratiert",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "goodnews.eu",
+      "url": "https://www.goodnews.eu/feed/",
+      "trust": "kuratiert",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "ntv",
+      "url": "https://www.n-tv.de/rss",
+      "trust": "allgemein",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "Spiegel",
+      "url": "https://www.spiegel.de/schlagzeilen/index.rss",
+      "trust": "allgemein",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "Tagesschau",
+      "url": "https://www.tagesschau.de/xml/rss2",
+      "trust": "allgemein",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "SWR Aktuell",
+      "url": "https://www.swr.de/~rss/swraktuell/index.xml",
+      "trust": "allgemein",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "MDR Aktuell",
+      "url": "https://www.mdr.de/nachrichten/index-rss.xml",
+      "trust": "allgemein",
+      "sprache": "de",
+      "aktiv": true
+    },
+    {
+      "name": "ZDF heute",
+      "url": "https://www.zdf.de/rss/zdf/nachrichten",
+      "trust": "allgemein",
+      "sprache": "de",
+      "aktiv": false
+    }
+  ]
+}

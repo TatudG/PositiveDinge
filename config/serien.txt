@@ -1,0 +1,44 @@
+# Serien und Füller — Artikel, die keine Nachricht sind.
+#
+# Warum das eine eigene Datei ist und nicht in hart-de.txt steht:
+# Das hier ist kein negativer Inhalt, sondern gar keiner. "Good News in History"
+# ist eine taegliche Rubrik ueber Ereignisse von vor 100 Jahren, ein Horoskop
+# ist keine Meldung, und ein Podcast-Transkript liest niemand als Nachricht.
+# Sie stammen fast alle aus den kuratierten Quellen, die kein Score-Filter
+# aussiebt — deshalb greift genau hier nur diese Liste.
+#
+# Verglichen wird gegen den Titel. Nackte Zeile = Stamm, re: = regulaerer Ausdruck.
+
+# --- Good News Network ---
+good news in history
+this day in history
+on this day in history
+weekly horoscope
+free will astrology
+horoscope
+podcast transcript
+transcript:
+good news in history september
+good news in history october
+
+# --- Rubriken, die nur sammeln statt zu berichten ---
+what we're reading:
+what we are reading:
+rundbrief
+newsletter
+wochenrückblick
+jahresrückblick
+re:\bquiz\b
+gewinnspiel
+re:\bverlosung\b
+
+# --- Vorberichte: die Frage nach dem Ausgang ist keine Nachricht ---
+re:\bwer gewinnt\b
+re:\bwho will win\b
+re:\bwer holt\b
+"life after:"
+
+# --- Ratgeber ohne Nachrichtenwert ---
+re:\bhoroskop\b
+re:\bsterne\b.{0,20}(sagen|stehen)
+re:\bwetter\b.{0,10}(morgen|heute|wochenende)$

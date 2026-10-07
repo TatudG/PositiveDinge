@@ -1,0 +1,458 @@
+/* PositiveDinge — das ganze Design an einer Stelle.
+   Handgeschrieben. build.py fasst diese Datei nie an.
+
+   Ton: hell und warm, wie fruher Morgen. Kein grelles Neon, keine
+   Schattenorgie. Farben und Masse stehen als Variablen in :root. */
+
+:root {
+  --bg:          #fffaf4;
+  --flaeche:     #ffffff;
+  --flaeche-2:   #fdf2e7;
+  --text:        #241a12;
+  --text-leise:  #6d5b4b;
+  --akzent:      #c2481a;
+  --akzent-hell: #f6e3d6;
+  --gold:        #a86f10;
+  --linie:       #ecdfd1;
+  --schatten:    0 1px 2px rgba(70, 40, 15, .05), 0 8px 24px rgba(70, 40, 15, .06);
+  --radius:      14px;
+  --huelle:      1160px;
+  --abstand:     clamp(2.5rem, 6vw, 5rem);
+  --schrift:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                 Arial, "Noto Sans", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:          #171310;
+    --flaeche:     #211b16;
+    --flaeche-2:   #2a221b;
+    --text:        #f4ece4;
+    --text-leise:  #b6a698;
+    --akzent:      #ff9d63;
+    --akzent-hell: #3a2a1e;
+    --gold:        #e0b062;
+    --linie:       #362c24;
+    --schatten:    0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--schrift);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--akzent); }
+
+/* Wer mit Tab navigiert, muss sehen, wo er ist. */
+:focus-visible {
+  outline: 3px solid var(--akzent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.huelle {
+  width: 100%;
+  max-width: var(--huelle);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* Der Sprunglink ist erst bei Tastaturfokus sichtbar. */
+.sprungmarke {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  background: var(--akzent);
+  color: #fff;
+  padding: .7rem 1.1rem;
+  border-radius: 0 0 var(--radius) 0;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sprungmarke:focus { left: 0; }
+
+/* ---------------------------------------------------------------- Kopf */
+
+.kopf {
+  padding-block: clamp(2.5rem, 7vw, 5rem) 0;
+  background:
+    radial-gradient(120% 100% at 12% 0%, var(--akzent-hell) 0%, transparent 62%),
+    var(--bg);
+}
+
+.kopf__marke {
+  margin: 0 0 .8rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--akzent);
+}
+
+.kopf__titel {
+  margin: 0 0 1.1rem;
+  font-size: clamp(2.1rem, 6.2vw, 3.9rem);
+  line-height: 1.06;
+  letter-spacing: -.022em;
+  max-width: 22ch;
+}
+.kopf__titel em {
+  font-style: normal;
+  color: var(--akzent);
+  text-decoration: underline;
+  text-decoration-thickness: .07em;
+  text-underline-offset: .1em;
+  text-decoration-color: color-mix(in srgb, var(--akzent) 40%, transparent);
+}
+
+.kopf__text {
+  margin: 0;
+  max-width: 62ch;
+  font-size: clamp(1.02rem, 1.6vw, 1.16rem);
+  color: var(--text-leise);
+}
+
+/* --- Methodenerklaerung: zugeklappt, damit sie nicht stoert --- */
+
+.methode {
+  margin-top: 1.6rem;
+  max-width: 62ch;
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  background: var(--flaeche);
+}
+.methode summary {
+  cursor: pointer;
+  padding: .8rem 1.1rem;
+  font-weight: 600;
+  list-style: none;
+}
+.methode summary::-webkit-details-marker { display: none; }
+.methode summary::before {
+  content: "＋";
+  display: inline-block;
+  margin-right: .55rem;
+  color: var(--akzent);
+  font-weight: 700;
+}
+.methode[open] summary::before { content: "−"; }
+.methode summary:hover { color: var(--akzent); }
+
+.methode__text {
+  padding: 0 1.1rem .9rem;
+  border-top: 1px solid var(--linie);
+  font-size: .95rem;
+  color: var(--text-leise);
+}
+.methode__text p { margin: .85rem 0; }
+.methode__text strong { color: var(--text); }
+
+.methode__ehrlich {
+  background: var(--flaeche-2);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: .8rem 1rem;
+  margin-bottom: 0;
+}
+
+.methode code, .fuss code {
+  background: var(--flaeche-2);
+  border: 1px solid var(--linie);
+  border-radius: 5px;
+  padding: .08em .38em;
+  font-size: .88em;
+}
+
+/* --- Zahlen --- */
+
+.zahlen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 3.2rem);
+  margin: clamp(1.8rem, 4vw, 2.8rem) 0 0;
+}
+.zahlen__paar { margin: 0; }
+.zahlen dt {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-leise);
+}
+.zahlen dd {
+  margin: .1rem 0 0;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.kopf__stand {
+  margin: 1.4rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--linie);
+  font-size: .86rem;
+  color: var(--text-leise);
+}
+
+/* ------------------------------------------------------------- Filter */
+
+.filter {
+  padding-block: clamp(1.8rem, 4vw, 2.6rem) 0;
+}
+.filter__hinweis {
+  margin: 0 0 .7rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-leise);
+}
+.filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  padding: .42rem .95rem;
+  cursor: pointer;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.chip:hover { border-color: var(--akzent); color: var(--akzent); }
+.chip.is-aktiv {
+  background: var(--akzent);
+  border-color: var(--akzent);
+  color: #fff;
+}
+.chip__zahl {
+  font-size: .78rem;
+  font-weight: 700;
+  opacity: .65;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------------- Strom */
+
+#strom { padding-block: clamp(1.6rem, 4vw, 2.4rem) var(--abstand); }
+
+.gruppe { margin-bottom: clamp(2.2rem, 5vw, 3.4rem); }
+
+.gruppe__titel {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 0 0 1.2rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-leise);
+}
+.gruppe__titel::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--linie);
+}
+.gruppe__zahl {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--akzent);
+}
+
+.raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(1.1rem, 2.4vw, 1.7rem);
+}
+
+/* -------------------------------------------------------------- Karte */
+
+.karte {
+  display: flex;
+  flex-direction: column;
+  background: var(--flaeche);
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--schatten);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.karte:hover { transform: translateY(-3px); }
+
+/* Muss hier stehen: .karte setzt display:flex und wuerde sonst das
+   hidden-Attribut des Browsers ueberstimmen — der Filter taete nichts. */
+.karte[hidden] { display: none; }
+
+/* Feste Rahmenratio: die Karten bleiben im Raster gleich hoch und beim Laden
+   springt nichts, auch wenn das Bild noch nicht da ist. */
+.karte__bildrahmen {
+  aspect-ratio: 3 / 2;
+  background: var(--flaeche-2);
+  overflow: hidden;
+}
+.karte__bild {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.karte__inhalt {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.05rem 1.15rem 1.15rem;
+}
+
+.karte__kopf {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 0 .55rem;
+}
+.karte__thema {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--akzent);
+}
+.karte__sprache {
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--text-leise);
+  border: 1px solid var(--linie);
+  border-radius: 4px;
+  padding: .05rem .3rem;
+}
+
+.karte__titel {
+  margin: 0 0 .6rem;
+  font-size: 1.09rem;
+  line-height: 1.3;
+  letter-spacing: -.008em;
+}
+.karte__titel a {
+  color: inherit;
+  text-decoration: none;
+}
+.karte__titel a:hover { color: var(--akzent); }
+.karte__titel a:focus-visible { outline-offset: 4px; }
+
+.karte__teaser {
+  margin: 0 0 1rem;
+  font-size: .92rem;
+  color: var(--text-leise);
+}
+
+.karte__fuss {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem .8rem;
+  margin: auto 0 0;
+  padding-top: .7rem;
+  border-top: 1px solid var(--linie);
+  font-size: .78rem;
+  color: var(--text-leise);
+}
+.karte__quelle strong { color: var(--text); font-weight: 600; }
+.karte__nachweis { font-size: .74rem; }
+.karte__nachweis a { color: inherit; }
+.karte__weitere { font-size: .74rem; font-style: italic; }
+
+/* --------------------------------------------------------- Leerer Fall */
+
+.leer {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-leise);
+  background: var(--flaeche-2);
+  border-radius: var(--radius);
+}
+.leer__zurueck {
+  font: inherit;
+  font-weight: 600;
+  color: var(--akzent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------- Fuss */
+
+.fuss {
+  padding-block: var(--abstand) calc(var(--abstand) + 1rem);
+  margin-top: 2rem;
+  border-top: 1px solid var(--linie);
+  background: var(--flaeche-2);
+  font-size: .92rem;
+  color: var(--text-leise);
+}
+.fuss__titel {
+  margin: 0 0 .9rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.fuss p { max-width: 74ch; }
+.fuss__klein { font-size: .85rem; }
+
+/* ------------------------------------------------------ Schmaler Schirm */
+
+@media (max-width: 768px) {
+  .raster { grid-template-columns: 1fr; }
+  .zahlen { gap: 1.4rem 2rem; }
+  .karte:hover { transform: none; }
+}
+
+/* Wer Bewegung abbestellt hat, bekommt keine. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .karte:hover { transform: none; }
+}
+
+/* Beim Drucken sind Filterknoepfe sinnlos — und ausgeblendete Karten
+   muessen trotzdem erscheinen, sonst fehlt im PDF die Haelfte. */
+@media print {
+  .sprungmarke, .filter, .methode, .leer, .kopf__stand { display: none; }
+  .chip { display: none; }
+  .karte { break-inside: avoid; box-shadow: none; }
+  .karte[hidden] { display: flex !important; }
+  .gruppe { break-inside: auto; }
+  body { background: #fff; }
+}

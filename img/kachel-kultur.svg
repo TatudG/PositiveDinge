@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Kultur">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b3a8c"/>
+      <stop offset="1" stop-color="#cfa8ec"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <g opacity=".13" fill="#fff">
+    <circle cx="118" cy="92" r="108"/>
+    <circle cx="712" cy="424" r="140"/>
+    <circle cx="648" cy="86" r="52"/>
+  </g>
+  <g opacity=".95"><circle cx="352" cy="322" r="38" fill="none" stroke="#fff" stroke-width="12"/><path d="M390 322 L390 150 L476 172 L476 232 L390 210" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/></g>
+</svg>
