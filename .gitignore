@@ -1,6 +1,20 @@
 # Zwischenstand: gecachte Feeds, Openverse-Antworten, Audit-Log.
 # Nicht versionieren — reine Beschleunigung und Diagnose.
-.cache/
+.cache/*
+
+# Eine Ausnahme, und die ist wichtig: die Openverse-Antworten muessen mit.
+#
+# Ohne Schluessel erlaubt Openverse nur 200 Anfragen pro Tag. Der stundliche
+# Build auf GitHub Actions startet aber jedes Mal in einem frischen Checkout —
+# ohne diese Antworten im Repository waeren das rund 20 Suchen pro Stunde, also
+# 480 am Tag. Das Limit waere nach fuenf Stunden erreicht, und danach haetten
+# neue Artikel kein Bild mehr. Mit den Antworten im Repo laufen die meisten
+# Stunden aus dem Cache; nur die abgelaufenen (7 Tage) werden neu geholt.
+#
+# Deshalb .cache/* und nicht .cache/ — bei .cache/ liesse sich der Unterordner
+# nicht mehr ausnehmen, weil git eine Ausnahme unter einem ausgeschlossenen
+# Verzeichnis nicht zulaesst.
+!.cache/openverse/
 
 # Halbfertige Schreibvorgaenge (tauchen nur auf, wenn ein Build abstuerzt)
 *.tmp

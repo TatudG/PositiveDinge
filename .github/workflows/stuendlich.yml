@@ -1,0 +1,64 @@
+name: Stündlich neu bauen
+
+# Warum hier und nicht im Browser: eine statische Seite kann sich nicht selbst
+# aktualisieren. Irgendetwas muss build.py ausführen, und das muss laufen,
+# während der Rechner aus ist. GitHub übernimmt das kostenlos.
+#
+# Der Lauf baut die Seite und legt sie als Commit ab. GitHub Pages stellt den
+# Branch danach von selbst neu bereit.
+
+on:
+  schedule:
+    # Jede Stunde zur Minute 17.
+    #
+    # Nicht zur Minute 0: GitHub verteilt geplante Läufe über alle
+    # Repositories, und die volle Stunde ist der ungünstigste Zeitpunkt — dort
+    # stauen sich die Aufträge, und der Lauf kommt mitunter deutlich später.
+    # Eine krumme Minute kostet nichts und kommt verlässlicher.
+    #
+    # Genaue Pünktlichkeit ist ohnehin nicht zugesagt: bei GitHub Actions ist
+    # "stündlich" eine Bitte, keine Zusage. Unter Last können zehn bis dreißig
+    # Minuten Verspätung zusammenkommen.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Läuft ein Durchgang noch, während der nächste startet, wird der zweite
+# eingereiht statt abgebrochen — sonst könnten sich zwei Builds beim Schreiben
+# in die Quere kommen.
+concurrency:
+  group: stuendlich
+  cancel-in-progress: false
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: Seite bauen
+        # --nur-cc-bilder: die veröffentlichte Seite darf keine Pressefotos
+        #   einbinden (Urheberrecht).
+        # --aufraeumen: Bilder löschen, die keine Karte mehr benutzt. Ohne das
+        #   wächst img/cc/ mit jedem Lauf um einige hundert Kilobyte, und alles
+        #   davon landet im Repository.
+        run: python3 -I build.py --nur-cc-bilder --aufraeumen
+
+      - name: Änderungen einspielen
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Nichts geändert — kein Commit."
+            exit 0
+          fi
+          git config user.name "PositiveDinge"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Stündliche Aktualisierung ($(date -u '+%d.%m.%Y %H:%M' ) UTC)"
+          git push

@@ -1074,11 +1074,13 @@ def verkleinere(pfad):
     mehr an. Die Dateigroesse allein taugt als Kriterium nicht — siehe
     schon_optimiert().
 
-    sips gehoert zu macOS. Fehlt es, bleibt das Bild wie es ist — kein Fehler,
-    nur unnoetig gross.
+    Gebraucht wird ein Bildwerkzeug. sips gehoert zu macOS und ist dort immer
+    da; auf Linux (etwa dem Runner des stuendlichen Builds) uebernimmt
+    ImageMagick. Fehlt beides, bleibt das Bild wie es ist — kein Fehler, nur
+    unnoetig gross.
     """
-    sips = shutil.which("sips")
-    if sips is None:
+    werkzeug, programm = bildwerkzeug()
+    if werkzeug is None:
         return
     if pfad.name in schon_optimiert():
         return
@@ -1089,22 +1091,101 @@ def verkleinere(pfad):
     if not (zu_breit or zu_schwer):
         return
 
-    befehl = [sips]
-    if zu_breit:
-        befehl += ["-Z", str(MAX_BILD_BREITE)]
-    if pfad.suffix.lower() in (".jpg", ".jpeg"):
-        befehl += ["-s", "format", "jpeg", "-s", "formatOptions", "78"]
-    befehl.append(str(pfad))
-    if len(befehl) == 2:
+    ist_jpeg = pfad.suffix.lower() in (".jpg", ".jpeg")
+    if not zu_breit and not ist_jpeg:
         # Zu schwer, aber weder zu breit noch ein JPEG — etwa ein grosses PNG.
         # Umkodieren wuerde hier Transparenz kosten, das ist es nicht wert.
         return
 
     try:
-        subprocess.run(befehl, check=True, capture_output=True, timeout=30)
+        if werkzeug == "sips":
+            befehl = [programm]
+            if zu_breit:
+                befehl += ["-Z", str(MAX_BILD_BREITE)]
+            if ist_jpeg:
+                befehl += ["-s", "format", "jpeg", "-s", "formatOptions", "78"]
+            befehl.append(str(pfad))
+            subprocess.run(befehl, check=True, capture_output=True, timeout=60)
+        else:
+            # ImageMagick kann nicht in dieselbe Datei schreiben, aus der es
+            # liest. Der Umweg liegt im Cache, nicht in img/ — sonst waere er
+            # einen Wimpernschlag lang Teil der Veroeffentlichung.
+            CACHE.mkdir(parents=True, exist_ok=True)
+            umweg = CACHE / ("umweg" + pfad.suffix)
+            befehl = [programm, str(pfad)]
+            if zu_breit:
+                # Das ">" heisst: nur verkleinern, nie vergroessern.
+                befehl += ["-resize", "%dx>" % MAX_BILD_BREITE]
+            if ist_jpeg:
+                befehl += ["-quality", "78"]
+            befehl.append(str(umweg))
+            subprocess.run(befehl, check=True, capture_output=True, timeout=60)
+            os.replace(umweg, pfad)
     except (subprocess.SubprocessError, OSError):
         return
     merke_optimiert(pfad.name)
+
+
+def bildwerkzeug():
+    """Erstes brauchbares Bildwerkzeug: ('sips', Pfad) oder ('magick', Pfad).
+
+    Zwei Werkzeuge statt einem, weil der stuendliche Build auf Linux laeuft und
+    dort kein sips existiert. Ohne diesen Zweig wuerde der Runner neue Bilder
+    unkomprimiert ins Repository schreiben — ein paar hundert Kilobyte pro
+    Stunde, die sich ansammeln.
+    """
+    sips = shutil.which("sips")
+    if sips:
+        return "sips", sips
+    for name in ("magick", "convert"):
+        pfad = shutil.which(name)
+        if pfad:
+            return "magick", pfad
+    return None, None
+
+
+def raeume_bilder_auf(artikel):
+    """Loescht Bilder, die keine Karte mehr benutzt.
+
+    Ohne das waechst img/cc/ unbegrenzt: die Seite zeigt 32 Artikel, aber jeder
+    Lauf laedt fuer neue Artikel neue Bilder herunter, ohne die alten zu
+    entfernen. Stuendlich gerechnet sind das schnell einige Megabyte am Tag,
+    und alles davon landet im Repository, weil die Bilder mit veroeffentlicht
+    werden muessen.
+
+    Nur img/cc/ wird angefasst. Kacheln und Favicon liegen in img/, Pressefotos
+    in img/presse/ — beide bleiben unberuehrt.
+    """
+    benutzt = set()
+    for art in artikel:
+        pfad = (art.get("bild") or {}).get("pfad") or ""
+        if pfad.startswith("cc/"):
+            benutzt.add(pfad.split("/")[-1])
+
+    if not BILDER_CC.exists():
+        return 0
+
+    entfernt = 0
+    for datei in BILDER_CC.iterdir():
+        if not datei.is_file() or datei.name in benutzt:
+            continue
+        try:
+            datei.unlink()
+            entfernt += 1
+        except OSError:
+            pass
+
+    # Die Markierung muss mit aufgeraeumt werden. Sonst gilt ein geloeschtes
+    # Bild beim naechsten Mal noch als "schon verkleinert" — und die dann frisch
+    # heruntergeladene Rohdatei bliebe unkomprimiert liegen.
+    if entfernt:
+        rest = sorted(n for n in schon_optimiert() if n in benutzt)
+        try:
+            MARKE_OPTIMIERT.write_text("\n".join(rest) + ("\n" if rest else ""),
+                                       encoding="utf-8")
+        except OSError:
+            pass
+    return entfernt
 
 
 def freies_bild(artikel, args):
@@ -1428,6 +1509,8 @@ def main():
                           help="nie ins Netz, nur aus dem Cache")
     zerleger.add_argument("--nur-cc-bilder", action="store_true",
                           help="keine Pressefotos, nur frei lizenzierte Bilder")
+    zerleger.add_argument("--aufraeumen", action="store_true",
+                          help="Bilder loeschen, die keine Karte mehr benutzt")
     zerleger.add_argument("--strict", action="store_true",
                           help="Exit 1, wenn eine Quelle nicht erreichbar war")
     args = zerleger.parse_args()
@@ -1552,6 +1635,13 @@ def main():
     info("  index.html geschrieben (%d Artikel, %.0f KB)"
          % (len(begrenzt), len(seite.encode("utf-8")) / 1024))
     info("  Audit-Log: .cache/filter-report.json")
+
+    # Erst nach dem Schreiben: was keine Karte mehr benutzt, kann weg. Vorher
+    # aufzuraeumen wuerde bei einem Abbruch Bilder loeschen, die die noch
+    # stehende alte Seite braucht.
+    if args.aufraeumen:
+        weg = raeume_bilder_auf(begrenzt)
+        info("  Aufgeraeumt: %d nicht mehr benutzte Bilder entfernt" % weg)
 
     if args.strict and len(erfolgreich) < len(cfg["quellen"]):
         fehlend = [q["name"] for q in cfg["quellen"] if q["name"] not in erfolgreich]
